@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"&gt;
+
+<head>
+&lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" /&gt;
+&lt;script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" &gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+&lt;h2 &gt;Spring Boot Crud System -Student Registation&lt;/h2&gt;
+&lt;tr&gt;
+&lt;div align = "left" &gt;
+&lt;h3&gt;&lt;a  th:href="@{'/new'}"&gt;Add new&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;/tr&gt;
+&lt;tr&gt;
+
+&lt;div class="col-sm-5" align = "center"&gt;
+&lt;div class="panel-body" align = "center" &gt;
+&lt;table class="table"&gt;
+&lt;thead class="thead-dark"&gt;
+&lt;tr&gt;
+&lt;th&gt;Student ID&lt;/th&gt;
+&lt;th&gt;Student Name&lt;/th&gt;
+&lt;th&gt;Course&lt;/th&gt;
+&lt;th&gt;Fee&lt;/th&gt;
+&lt;th&gt;Edit&lt;/th&gt;
+&lt;th&gt;Delete&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr  th:each="student : ${liststudent }"&gt;
+&lt;td th:text="${student.id}"&gt;Student ID&lt;/td&gt;
+&lt;td th:text="${student.studentname}"&gt;StudentName&lt;/td&gt;
+&lt;td th:text="${student.course}"&gt;Course&lt;/td&gt;
+&lt;td th:text="${student.fee}"&gt;Fee&lt;/td&gt;
+&lt;td&gt;
+&lt;a th:href="@{'/edit/' + ${student.id}}"&gt;Edit&lt;/a&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;a th:href="@{'/delete/' + ${student.id}}"&gt;Delete&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/tr&gt;
+
+&lt;/tbody>
+&lt;/table&gt;
+&lt;div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
