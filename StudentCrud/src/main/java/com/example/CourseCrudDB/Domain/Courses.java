@@ -7,42 +7,50 @@ import jakarta.persistence.Id;
 public class Courses
 {
     @Id
-    private long id;
+    private Long id;
     private String title;
     private String description;
 
-    public Courses(long id, String title, String description) {
+    public Courses(long id, String title, String description)
+    {
         this.id = id;
         this.title = title;
         this.description = description;
     }
 
-    public long getId() {
+    public long getId()
+    {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(long id)
+    {
         this.id = id;
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title)
+    {
         this.title = title;
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Courses{" +
                 "id=" + id +
                 ", title='" + title + '\'' +

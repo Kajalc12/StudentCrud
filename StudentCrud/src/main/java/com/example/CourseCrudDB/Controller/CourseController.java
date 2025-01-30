@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class CourseController
 {
-@Autowired
-private CourseService courseService;
+
+    @Autowired
+    private CourseService courseService;
 
     @GetMapping("/home")
     public String home()
@@ -23,16 +25,16 @@ private CourseService courseService;
     @GetMapping("/courses")
     public List<Courses> getcourses()
     {
-
         return this.courseService.getCourse();
     }
 
     @GetMapping("/courses/{courseId}")
-    public Courses getSpecificCourseById(@PathVariable String courseId) {
+    public Courses getSpecificCourseById(@PathVariable String courseId)
+    {
         return this.courseService.getCourseById(Long.parseLong(courseId));
     }
 
-    @PostMapping("/addCourses")
+    @PostMapping("/addCourse")
     public Courses addCourses(@RequestBody Courses courses)
     {
         return this.courseService.addCourse(courses);
@@ -47,8 +49,10 @@ private CourseService courseService;
     @DeleteMapping("/deletecourses/{courseId}")
     public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId)
     {
-        try{
+        try
+        {
             this.courseService.deleteCourse(Long.parseLong(courseId));
+            System.out.println("record is deleted successfully");
             return new ResponseEntity<>(HttpStatus.OK);
         }
         catch (Exception e)
